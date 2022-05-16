@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Character</ion-title>
+    <ion-title>Episode</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="character"></ion-back-button>
     </ion-buttons>
@@ -11,15 +11,16 @@
   <ion-grid>
     <ion-row>
       <ion-col sizeMd="4" offsetMd="4">
-        <div *ngIf="character">
+        <div *ngIf="episode">
           <ion-card>
             <ion-card-content class="ion-text-center">
-              <img src="{{character.image}}">
+              <img src="https://c.tenor.com/3hIpHNbcVf4AAAAC/rick-and-morty-rick.gif">
               <ion-card-title>
-                {{character.name}}
+                Name: {{episode.name}}
               </ion-card-title>
-              <p>{{character.status}}</p>
-              <p>ID: {{character.id}}</p>
+              <p>Episode: {{episode.episode}}</p>
+              <p>ID: {{episode.id}}</p>
+              <p>{{episode.characters}}</p>
               <ion-list>
               </ion-list>
             </ion-card-content>

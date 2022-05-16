@@ -9,8 +9,10 @@
 
 <ion-content>
 <ion-list>
-  <ion-item *ngFor='let episode of episodes'>
-    <ion-label>{{episode.name}}</ion-label>
+  <ion-item *ngFor='let episode of episodes' [routerLink]="['/single-episode/'+episode.id]">
+    <ion-label>{{episode.id}}: {{episode.name}}</ion-label>
+    <p>{{episode.air_date}}</p>
+    
   </ion-item>
 </ion-list>
   
