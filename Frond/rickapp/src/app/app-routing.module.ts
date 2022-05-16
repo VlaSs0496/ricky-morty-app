@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'character',
     pathMatch: 'full'
   },
 
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'character',
     loadChildren: () => import('./character/character.module').then( m => m.CharacterPageModule)
+  },
+  {
+    path: 'profile-character/:id',
+    loadChildren: () => import('./profile-character/profile-character.module').then( m => m.ProfileCharacterPageModule)
   },
 ];
 
