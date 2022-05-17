@@ -15,7 +15,7 @@ export class EpisodesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.http.get<any>('http://localhost:8080/test/episode')
+    this.http.get<any>('http://localhost:8080/api/episode')
     .subscribe(
       res => {console.log(res)
       this.episodes = res[0].results;

@@ -20,7 +20,7 @@ export class SingleEpisodePage implements OnInit {
   ngOnInit() {
     this.profileId = this.activatedRoute.snapshot.paramMap.get('id')
 
-    this.http.get('http://localhost:8080/test/episode/' + this.profileId)
+    this.http.get('http://localhost:8080/api/episode/' + this.profileId)
     .subscribe(
       res => {
       this.episode = res;

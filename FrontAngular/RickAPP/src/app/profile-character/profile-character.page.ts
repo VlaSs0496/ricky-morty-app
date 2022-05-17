@@ -20,7 +20,7 @@ export class ProfileCharacterPage implements OnInit {
   ngOnInit() {
     this.profileId = this.activatedRoute.snapshot.paramMap.get('id')
 
-    this.http.get('http://localhost:8080/test/character/' + this.profileId)
+    this.http.get('http://localhost:8080/api/character/' + this.profileId)
     .subscribe(
       res => {
       this.character = res;

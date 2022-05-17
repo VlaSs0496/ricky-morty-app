@@ -14,7 +14,7 @@ export class CharacterPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.http.get<any>('http://localhost:8080/test/character')
+    this.http.get<any>('http://localhost:8080/api/character')
     .subscribe(
       res => {console.log(res)
       this.characters = res[0].results;
