@@ -1,10 +1,8 @@
-package demo.springboot.client;
+package demo.springboot.service;
 
 import demo.springboot.response.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -13,15 +11,14 @@ import repositorio.EpisodeRepository;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-@Service
+@Service // clase de tiepo servicio
 @Slf4j
-public class RaMClient {
+public class RaMService {
 
     private final WebClient webClient;
 
-    @Autowired
     EpisodeRepository episodeRepository;
-    public RaMClient(WebClient.Builder builder) {
+    public RaMService(WebClient.Builder builder) {
         webClient = builder.baseUrl("https://rickandmortyapi.com/api").build();
     }
 
@@ -54,4 +51,5 @@ public class RaMClient {
     public EpisodeResponse saveEpisode(EpisodeResponse episode){
         return episodeRepository.save(episode);
     }
+
 }

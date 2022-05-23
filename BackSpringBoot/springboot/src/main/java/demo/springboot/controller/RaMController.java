@@ -1,24 +1,23 @@
 package demo.springboot.controller;
 
-import demo.springboot.client.RaMClient;
+import demo.springboot.service.RaMService;
 import demo.springboot.response.*;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 
-@RestController
+@RestController //la funcion de esta clase
 @AllArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api") //nos dice en que direccion del servidor se va activar esta clase o los metodos de esta clase
 public class RaMController {
-    @Autowired
-    RaMClient raMClient;
+
+    RaMService raMClient;
 
     @CrossOrigin(origins = "http://localhost:8100/")
-    @GetMapping("/character/{id}")
-    public Mono<CharacterResponse> getCharacterById(@PathVariable String id){
+    @GetMapping("/character/{id}") //en esta dicireccion se activa el metodo de personajes por id
+    public Mono<CharacterResponse> getCharacterById(@PathVariable String id){ //el metodo
         return raMClient.findAndCharacterById(id);
     }
     @CrossOrigin(origins = "http://localhost:8100/")
@@ -44,6 +43,7 @@ public class RaMController {
     public Flux<GetAllCharacters> getAllCharacters(){
         return raMClient.getAllCharacters();
     }
+
 
     @PostMapping
     public EpisodeResponse saveEpisode(@RequestBody EpisodeResponse episode){
